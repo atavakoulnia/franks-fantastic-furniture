@@ -5,7 +5,7 @@
 
 {% endblock %}
 
-
+<!-- --------------------------------SUBHEADING------------------------------------------- -->
 {% block body %}
 <div id="container">
   <div class="left">
@@ -15,29 +15,29 @@
       an intersection table between Products and Orders.</p>
   </div>
 </div>
-<!-- --------------------------------------------------------------------------- -->
+<!-- -----------------------------------TABLE---------------------------------------- -->
 <table style="width: 100%">
   <tr>
-    <th>PK: transaction_id</th>
-    <th>FK1: order_id</th>
-    <th>FK2: product_id</th>
-    <th>quantity</th>
+    {% for key in transactions[0].keys() %}
+    <th>{{ key }}</th>
+    {% endfor %}
   </tr>
+  {% for transaction in transactions %}
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    {% for key in transaction.keys() %}
+    <td>{{transaction[key]}}</td>
+    {% endfor %}
     <td>
       <a href="">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
   </tr>
+  {% endfor %}
 </table>
 <br>
-<!-- --------------------------------------------------------------------------- -->
-<form action="/customers" method="POST">
+<!-- ---------------------------------FORM------------------------------------------ -->
+<form action="/form" method="POST">
   <input type="text" placeholder="FK1: order_id" name="FK1: order_id">
   <input type="text" placeholder="FK2: product_id" name="FK2: product_id">
   <input type="text" placeholder="quantity" name="quantity">

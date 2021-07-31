@@ -5,7 +5,7 @@
 
 {% endblock %}
 
-
+<!-- --------------------------------SUBHEADING------------------------------------------- -->
 {% block body %}
 <div id="container">
   <div class="left">
@@ -14,27 +14,29 @@
     <p>When a person places an order this tracks the different products in the order and quantity.</p>
   </div>
 </div>
-<!-- --------------------------------------------------------------------------- -->
+<!-- -----------------------------------TABLE---------------------------------------- -->
 <table style="width: 100%">
   <tr>
-    <th>PK: product_id</th>
-    <th>product_name</th>
-    <th>unit_price</th> 
+    {% for key in products[0].keys() %}
+    <th>{{ key }}</th>
+    {% endfor %}
   </tr>
+  {% for product in products %}
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    {% for key in product.keys() %}
+    <td>{{product[key]}}</td>
+    {% endfor %}
     <td>
       <a href="">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
   </tr>
+  {% endfor %}
 </table>
 <br>
-<!-- --------------------------------------------------------------------------- -->
-<form action="/customers" method="POST">
+<!-- ---------------------------------FORM------------------------------------------ -->
+<form action="/form" method="POST">
   <input type="text" placeholder="product_name" name="product_name">
   <input type="text" placeholder="unit_price" name="unit_price">
   <input type="submit" value="CREATE">

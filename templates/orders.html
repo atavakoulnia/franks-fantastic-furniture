@@ -5,7 +5,7 @@
 
 {% endblock %}
 
-
+<!-- --------------------------------SUBHEADING------------------------------------------- -->
 {% block body %}
 <div id="container">
   <div class="left">
@@ -14,25 +14,29 @@
     <p>Tracks customers to which the orders belong.</p>
   </div>
 </div>
-<!-- --------------------------------------------------------------------------- -->
+<!-- -----------------------------------TABLE---------------------------------------- -->
 <table style="width: 100%">
   <tr>
-    <th>PK: order_id</th>
-    <th>FK1: customer_id</th>
+    {% for key in orders[0].keys() %}
+    <th>{{ key }}</th>
+    {% endfor %}
   </tr>
+  {% for order in orders %}
   <tr>
-    <td></td>
-    <td></td>
+    {% for key in order.keys() %}
+    <td>{{order[key]}}</td>
+    {% endfor %}
     <td>
       <a href="">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
   </tr>
+  {% endfor %}
 </table>
 <br>
-<!-- --------------------------------------------------------------------------- -->
-<form action="/customers" method="POST">
+<!-- ---------------------------------FORM------------------------------------------ -->
+<form action="/form" method="POST">
   <input type="text" placeholder="FK1: customer_id" name="FK1: customer_id">
   <input type="submit" value="CREATE">
 </form>

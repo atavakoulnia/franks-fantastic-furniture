@@ -5,7 +5,7 @@
 
 {% endblock %}
 
-
+<!-- --------------------------------SUBHEADING------------------------------------------- -->
 {% block body %}
 <div id="container">
   <div class="left">
@@ -14,27 +14,29 @@
     <p>Employee(s) assigned to help customer of specific order.</p>
   </div>
 </div>
-<!-- --------------------------------------------------------------------------- -->
+<!-- -----------------------------------TABLE---------------------------------------- -->
 <table style="width: 100%">
   <tr>
-    <th>PK: employee_id</th>
-    <th>first_name</th>
-    <th>last_name</th>
+    {% for key in employees[0].keys() %}
+    <th>{{ key }}</th>
+    {% endfor %}
   </tr>
+  {% for employee in employees %}
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    {% for key in employee.keys() %}
+    <td>{{employee[key]}}</td>
+    {% endfor %}
     <td>
       <a href="">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
   </tr>
+  {% endfor %}
 </table>
 <br>
-<!-- --------------------------------------------------------------------------- -->
-<form action="/customers" method="POST">
+<!-- ---------------------------------FORM------------------------------------------ -->
+<form action="/form" method="POST">
   <input type="text" placeholder="first_name" name="first_name" required>
   <input type="text" placeholder="last_name" name="last_name" required>
   <input type="submit" value="CREATE">
