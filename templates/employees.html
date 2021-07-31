@@ -9,23 +9,19 @@
 {% block body %}
 <div id="container">
   <div class="left">
-    <h2>Customers</h2>
-    <p>[Create, Read, Update, and Delete for Customers]</p>
-    <p>Keeps track of the customers with following attributes.</p>
+    <h2>Employees</h2>
+    <p>[Create, Read, Update, and Delete for Employees]</p>
+    <p>Employee(s) assigned to help customer of specific order.</p>
   </div>
 </div>
 <!-- --------------------------------------------------------------------------- -->
 <table style="width: 100%">
   <tr>
-    <th>PK: customer_id</th>
-    <th>first_name</th> 
+    <th>PK: employee_id</th>
+    <th>first_name</th>
     <th>last_name</th>
-    <th>address</th>
-    <th>phone_number</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
     <td></td>
     <td></td>
     <td></td>
@@ -41,8 +37,6 @@
 <form action="/customers" method="POST">
   <input type="text" placeholder="first_name" name="first_name" required>
   <input type="text" placeholder="last_name" name="last_name" required>
-  <input type="text" placeholder="address" name="address" required>
-  <input type="text" placeholder="phone_number" name="phone_number">
   <input type="submit" value="CREATE">
 </form>
 {% endblock %}

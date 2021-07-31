@@ -53,3 +53,7 @@ th {
 body {
   background-color: rgb(225, 255, 230);
 }
+
+form {
+  text-align: center;
+}

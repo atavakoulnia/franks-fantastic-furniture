@@ -9,22 +9,21 @@
 {% block body %}
 <div id="container">
   <div class="left">
-    <h2>Customers</h2>
-    <p>[Create, Read, Update, and Delete for Customers]</p>
-    <p>Keeps track of the customers with following attributes.</p>
+    <h2>Transactions</h2>
+    <p>[Create, Read, Update, and Delete for Transactions]</p>
+    <p>Tracks order_id, product_id, and quantity of the products. Acts as
+      an intersection table between Products and Orders.</p>
   </div>
 </div>
 <!-- --------------------------------------------------------------------------- -->
 <table style="width: 100%">
   <tr>
-    <th>PK: customer_id</th>
-    <th>first_name</th> 
-    <th>last_name</th>
-    <th>address</th>
-    <th>phone_number</th>
+    <th>PK: transaction_id</th>
+    <th>FK1: order_id</th>
+    <th>FK2: product_id</th>
+    <th>quantity</th>
   </tr>
   <tr>
-    <td></td>
     <td></td>
     <td></td>
     <td></td>
@@ -39,10 +38,9 @@
 <br>
 <!-- --------------------------------------------------------------------------- -->
 <form action="/customers" method="POST">
-  <input type="text" placeholder="first_name" name="first_name" required>
-  <input type="text" placeholder="last_name" name="last_name" required>
-  <input type="text" placeholder="address" name="address" required>
-  <input type="text" placeholder="phone_number" name="phone_number">
+  <input type="text" placeholder="FK1: order_id" name="FK1: order_id">
+  <input type="text" placeholder="FK2: product_id" name="FK2: product_id">
+  <input type="text" placeholder="quantity" name="quantity">
   <input type="submit" value="CREATE">
 </form>
 {% endblock %}
