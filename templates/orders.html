@@ -27,7 +27,7 @@
     <td>{{order[key]}}</td>
     {% endfor %}
     <td>
-      <a href="">VIEW</a>
+      <a href="{{ url_for('orders') }}">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
@@ -36,8 +36,8 @@
 </table>
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
-<form action="/form" method="POST">
+<form id=orders action="/add_orders" method="POST">
   <input type="text" placeholder="FK1: customer_id" name="FK1: customer_id">
-  <input type="submit" value="CREATE">
+  <input type="submit" value="Submit">
 </form>
 {% endblock %}

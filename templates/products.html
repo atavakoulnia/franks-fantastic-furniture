@@ -27,7 +27,7 @@
     <td>{{product[key]}}</td>
     {% endfor %}
     <td>
-      <a href="">VIEW</a>
+      <a href="{{ url_for('products') }}">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
@@ -36,9 +36,9 @@
 </table>
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
-<form action="/form" method="POST">
+<form id=products action="/add_products" method="POST">
   <input type="text" placeholder="product_name" name="product_name">
   <input type="text" placeholder="unit_price" name="unit_price">
-  <input type="submit" value="CREATE">
+  <input type="submit" value="Submit">
 </form>
 {% endblock %}

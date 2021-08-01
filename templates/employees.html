@@ -27,7 +27,7 @@
     <td>{{employee[key]}}</td>
     {% endfor %}
     <td>
-      <a href="">VIEW</a>
+      <a href="{{ url_for('employees') }}">VIEW</a>
       <a href="">UPDATE</a>
       <a href="">DELETE</a>
     </td>
@@ -36,9 +36,9 @@
 </table>
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
-<form action="/form" method="POST">
+<form id=employees action="/add_employees" method="POST">
   <input type="text" placeholder="first_name" name="first_name" required>
   <input type="text" placeholder="last_name" name="last_name" required>
-  <input type="submit" value="CREATE">
+  <input type="submit" value="Submit">
 </form>
 {% endblock %}

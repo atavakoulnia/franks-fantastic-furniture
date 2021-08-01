@@ -1,4 +1,3 @@
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 CS 340 Databases
 Project Step 4 Draft Version: Data Definition Queries & Sample Data
