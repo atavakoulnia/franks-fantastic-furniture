@@ -13,8 +13,11 @@ Before Starting
 5. In VS code, make a new file called “.env” and copy and paste this… then save and close the file
 
 340DBHOST=localhost
+
 340DBUSER=root
+  
 340DBPW=<The password you set for MySQL when you downloaded it (in system preferences)>
+  
 340DB=CS340DB
 
 6. Now open the “.gitignore” file again and add back the text ‘.env’ then save and close the file
