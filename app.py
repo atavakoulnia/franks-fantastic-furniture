@@ -18,6 +18,7 @@ def index():
 # ------------------------------READ for Customers Page----------------------------------
 @app.route('/customers', methods=['POST', 'GET'])
 def customers():
+    db_connection = db.connect_to_database()
     query = "SELECT * FROM customers;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
@@ -27,6 +28,7 @@ def customers():
 def add_customers():
     # POST request
     if request.method == 'POST':
+        db_connection = db.connect_to_database()
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         address = request.form['address']
@@ -37,6 +39,7 @@ def add_customers():
         return redirect(url_for('customers'))
     # GET request
     elif request.method == 'GET':
+        db_connection = db.connect_to_database()
         query = "SELECT * FROM customers;"
         cursor = db.execute_query(db_connection=db_connection, query=query)
         results = cursor.fetchall()
@@ -44,17 +47,20 @@ def add_customers():
 # ------------------------------UPDATE for Customers Page--------------------------------
 @app.route('/update_customers/<int:customer_id>', methods=['POST','GET'])
 def update_customers(customer_id):
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Customers Page--------------------------------
 @app.route('/delete_customers/<int:customer_id>')
 def delete_customers(customer_id):
+    db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Orders Page 
+#                                   Orders Page
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Orders Page-------------------------------------
 @app.route('/orders', methods=['POST', 'GET'])
 def orders():
+    db_connection = db.connect_to_database()
     query = "SELECT * FROM orders;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
@@ -62,21 +68,25 @@ def orders():
 # ------------------------------CREATE for Orders Page-----------------------------------
 @app.route('/add_orders', methods=['POST', 'GET'])
 def add_orders():
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------UPDATE for Orders Page-----------------------------------
 @app.route('/update_orders/<int:order_id>', methods=['POST','GET'])
 def update_orders(order_id):
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Orders Page-----------------------------------
 @app.route('/delete_orders/<int:order_id>')
 def delete_orders(order_id):
+    db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Transactions Page 
+#                                   Transactions Page
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Transactions Page-------------------------------
 @app.route('/transactions', methods=['POST', 'GET'])
 def transactions():
+    db_connection = db.connect_to_database()
     query = "SELECT * FROM transactions;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
@@ -84,21 +94,25 @@ def transactions():
 # ------------------------------CREATE for Transactions Page-----------------------------
 @app.route('/add_transactions', methods=['POST', 'GET'])
 def add_transactions():
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------UPDATE for Transactions Page-----------------------------
 @app.route('/update_transactions/<int:transaction_id>', methods=['POST','GET'])
 def update_transactions(transaction_id):
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Transactions Page-----------------------------
 @app.route('/delete_transactions/<int:transactions_id>')
 def delete_transactions(transaction_id):
+    db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Products Page 
+#                                   Products Page
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Products Page-----------------------------------
 @app.route('/products', methods=['POST', 'GET'])
 def products():
+    db_connection = db.connect_to_database()
     query = "SELECT * FROM products;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
@@ -106,21 +120,25 @@ def products():
 # ------------------------------CREATE for Products Page---------------------------------
 @app.route('/add_products', methods=['POST', 'GET'])
 def add_products():
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------UPDATE for Products Page---------------------------------
 @app.route('/update_products/<int:product_id>', methods=['POST','GET'])
 def update_products(product_id):
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Products Page---------------------------------
 @app.route('/delete_products/<int:product_id>')
 def delete_products(product_id):
+    db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Employees Page 
+#                                   Employees Page
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Employees Page----------------------------------
 @app.route('/employees', methods=['POST', 'GET'])
 def employees():
+    db_connection = db.connect_to_database()
     query = "SELECT * FROM employees;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
@@ -128,14 +146,17 @@ def employees():
 # ------------------------------CREATE for Employees Page--------------------------------
 @app.route('/add_employees', methods=['POST', 'GET'])
 def add_employees():
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------UPDATE for Employees Page--------------------------------
 @app.route('/update_employees/<int:employee_id>', methods=['POST','GET'])
 def update_employees(employee_id):
+    db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Employees Page--------------------------------
 @app.route('/delete_employees/<int:employee_id>')
 def delete_employees(employee_id):
+    db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
 #                                       Listener
