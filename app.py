@@ -55,7 +55,7 @@ def delete_customers(customer_id):
     db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Orders Page
+#                                   Orders Page 
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Orders Page-------------------------------------
 @app.route('/orders', methods=['POST', 'GET'])
@@ -81,7 +81,7 @@ def delete_orders(order_id):
     db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Transactions Page
+#                                   Transactions Page 
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Transactions Page-------------------------------
 @app.route('/transactions', methods=['POST', 'GET'])
@@ -107,7 +107,7 @@ def delete_transactions(transaction_id):
     db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Products Page
+#                                   Products Page 
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Products Page-----------------------------------
 @app.route('/products', methods=['POST', 'GET'])
@@ -133,7 +133,7 @@ def delete_products(product_id):
     db_connection = db.connect_to_database()
     pass
 # ---------------------------------------------------------------------------------------
-#                                   Employees Page
+#                                   Employees Page 
 # ---------------------------------------------------------------------------------------
 # ------------------------------READ for Employees Page----------------------------------
 @app.route('/employees', methods=['POST', 'GET'])
@@ -164,3 +164,4 @@ def delete_employees(employee_id):
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 3000))
     app.run(port=port, debug=True)
+    
