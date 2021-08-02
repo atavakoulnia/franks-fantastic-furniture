@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
+import os
 import database.db_connector as db
 # ---------------------------------------------------------------------------------------
 #                                   Configuration
@@ -140,4 +141,5 @@ def delete_employees(employee_id):
 #                                       Listener
 # ---------------------------------------------------------------------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 3000))
+    app.run(port=port, debug=True)
