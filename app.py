@@ -24,26 +24,17 @@ def customers():
     results = cursor.fetchall()
     return render_template('customers.html', customers=results)
 # ------------------------------CREATE for Customers Page--------------------------------
-@app.route('/add_customers', methods=['POST', 'GET'])
+@app.route('/add_customers', methods=['POST'])
 def add_customers():
-    # POST request
-    if request.method == 'POST':
-        db_connection = db.connect_to_database()
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        address = request.form['address']
-        phone_number = request.form['phone_number']
-        query = 'INSERT INTO customers (first_name, last_name, address, phone_number) VALUES (%s,%s,%s,%s)'
-        data = (first_name, last_name, address, phone_number)
-        cursor = db.execute_query(db_connection, query, data)
-        return redirect(url_for('customers'))
-    # GET request
-    elif request.method == 'GET':
-        db_connection = db.connect_to_database()
-        query = "SELECT * FROM customers;"
-        cursor = db.execute_query(db_connection=db_connection, query=query)
-        results = cursor.fetchall()
-        return render_template('customers.html', add_customers=results)
+    db_connection = db.connect_to_database()
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    address = request.form['address']
+    phone_number = request.form['phone_number']
+    query = 'INSERT INTO customers (first_name, last_name, address, phone_number) VALUES (%s,%s,%s,%s)'
+    data = (first_name, last_name, address, phone_number)
+    db.execute_query(db_connection, query, data)
+    return redirect(url_for('customers'))
 # ------------------------------UPDATE for Customers Page--------------------------------
 @app.route('/update_customers/<int:customer_id>', methods=['POST','GET'])
 def update_customers(customer_id):
@@ -66,7 +57,7 @@ def orders():
     results = cursor.fetchall()
     return render_template('orders.html', orders=results)
 # ------------------------------CREATE for Orders Page-----------------------------------
-@app.route('/add_orders', methods=['POST', 'GET'])
+@app.route('/add_orders', methods=['POST'])
 def add_orders():
     db_connection = db.connect_to_database()
     pass
@@ -92,7 +83,7 @@ def transactions():
     results = cursor.fetchall()
     return render_template('transactions.html', transactions=results)
 # ------------------------------CREATE for Transactions Page-----------------------------
-@app.route('/add_transactions', methods=['POST', 'GET'])
+@app.route('/add_transactions', methods=['POST'])
 def add_transactions():
     db_connection = db.connect_to_database()
     pass
@@ -118,7 +109,7 @@ def products():
     results = cursor.fetchall()
     return render_template('products.html', products=results)
 # ------------------------------CREATE for Products Page---------------------------------
-@app.route('/add_products', methods=['POST', 'GET'])
+@app.route('/add_products', methods=['POST'])
 def add_products():
     db_connection = db.connect_to_database()
     pass
@@ -144,10 +135,15 @@ def employees():
     results = cursor.fetchall()
     return render_template('employees.html', employees=results)
 # ------------------------------CREATE for Employees Page--------------------------------
-@app.route('/add_employees', methods=['POST', 'GET'])
+@app.route('/add_employees', methods=['POST'])
 def add_employees():
     db_connection = db.connect_to_database()
-    pass
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    query = 'INSERT INTO employees (first_name, last_name) VALUES (%s,%s)'
+    data = (first_name, last_name)
+    db.execute_query(db_connection, query, data)
+    return redirect(url_for('employees'))
 # ------------------------------UPDATE for Employees Page--------------------------------
 @app.route('/update_employees/<int:employee_id>', methods=['POST','GET'])
 def update_employees(employee_id):
@@ -164,4 +160,3 @@ def delete_employees(employee_id):
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 3000))
     app.run(port=port, debug=True)
-    
