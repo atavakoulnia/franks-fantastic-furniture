@@ -1,5 +1,5 @@
 # CS340DB
-UPDATED: 8/3 - 9:00
+UPDATED: 8/3 - 9:00pm
 
 What works/doesn't work:
 
