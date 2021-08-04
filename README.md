@@ -1,5 +1,6 @@
 # CS340DB
-UPDATED: 8/3 - 9:00pm
+~~UPDATED: 8/3 - 9:00pm~~
+UPDATED: 8/4 - 1:18pm
 
 What works/doesn't work:
 
@@ -7,12 +8,12 @@ What works/doesn't work:
 - INSERT for Customers, Products, Employees
 - UPDATE not yet implemented (requirements say we only need an UPDATE for just one table/page)
 - DELETE for Customers, Orders, Transactions, Products, Employees
-- Search/filter functionality not yet implemented
+- Search/filter is fully functional for Customers (only need one)
 
 More info:
-- The INSERT function works for Orders and Transactions sometimes. I'm pretty sure it's something to do with the foreign keys.
-- I haven't attempted writing the code for UPDATE and search/filter functionality yet.
-- The DELETE function works for all the tables but for example, if I delete a row from the Transactions table (page), it does not delete the row associated with the order_id in the Orders table (page).
+- The INSERT function works for Orders sometimes. I'm pretty sure it's something to do with the foreign keys.
+- I haven't attempted writing the code for UPDATE and INSERT for Transactions yet.
+- The DELETE function works for all the tables but for example, if I delete a row from the Transactions table (page), it does not delete the row associated with the order_id in the Orders table (page). I don't think it's a big deal? Not sure if we will get points off. 
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------

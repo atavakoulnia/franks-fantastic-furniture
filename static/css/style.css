@@ -57,3 +57,7 @@ body {
 form {
   text-align: center;
 }
+
+#search {
+  margin-bottom: 25px;
+}

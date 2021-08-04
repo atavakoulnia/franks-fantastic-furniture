@@ -51,6 +51,26 @@ def delete_customers(id):
         return redirect(url_for('customers'))
     else:
         return redirect(url_for('customers'))
+# ------------------------------Search for Customers Page--------------------------------
+@app.route('/search_results', methods=['POST', 'GET'])
+def search_results():
+    results = []
+    return render_template('search_results.html', search_customers=results)
+
+@app.route('/search_customers', methods=['POST', 'GET'])
+def search_customers():
+    db_connection = db.connect_to_database()
+    if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        query = 'SELECT * FROM customers WHERE first_name = %s and last_name = %s'
+        data = (first_name, last_name)
+        cursor = db.execute_query(db_connection, query, data)
+        results = cursor.fetchall()
+        print(results)
+        return render_template('search_results.html', search_customers=results)
+    else:
+        return redirect(url_for('customers'))
 # ---------------------------------------------------------------------------------------
 #                                   Orders Page 
 # ---------------------------------------------------------------------------------------
