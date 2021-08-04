@@ -28,9 +28,15 @@
     <td>{{transaction[key]}}</td>
     {% endfor %}
     <td>
-      <a href="{{ url_for('transactions') }}">VIEW</a>
-      <a href="">UPDATE</a>
-      <a href="">DELETE</a>
+      <form action="{{ url_for('transactions') }}" method="post"> 
+        <input class="btn" type="submit" name="VIEW" value="VIEW">
+      </form>
+      <form action="{{ url_for('transactions') }}" method="post"> 
+        <input class="btn" type="submit" name="UPDATE" value="UPDATE">   
+      </form> 
+      <form action="{{ url_for('delete_transactions', id=transaction.transaction_id) }}" method="post"> 
+        <input class="btn" type="submit" name="DELETE" value="DELETE">
+      </form>
     </td>
   </tr>
   {% endfor %}
@@ -38,8 +44,8 @@
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
 <form id=transactions action="/add_transactions" method="POST">
-  <input type="number" placeholder="FK1: order_id" name="FK1: order_id">
-  <input type="number" placeholder="FK2: product_id" name="FK2: product_id">
+  <input type="number" placeholder="order_id" name="order_id">
+  <input type="number" placeholder="product_id" name="product_id">
   <input type="number" placeholder="quantity" name="quantity">
   <input type="submit" value="Submit">
 </form>

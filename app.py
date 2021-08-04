@@ -43,6 +43,7 @@ def update_customers(customer_id):
 # ------------------------------DELETE for Customers Page--------------------------------
 @app.route('/delete_customers/<int:id>', methods=['POST', 'GET'])
 def delete_customers(id):
+    db_connection = db.connect_to_database()
     if request.method == 'POST':
         query = 'DELETE FROM customers WHERE customer_id = %s'
         data = (id,)
@@ -65,17 +66,27 @@ def orders():
 @app.route('/add_orders', methods=['POST'])
 def add_orders():
     db_connection = db.connect_to_database()
-    pass
+    customer_id = request.form['customer_id']
+    query = 'INSERT INTO orders (customer_id) VALUES (%s)'
+    data = (customer_id)
+    db.execute_query(db_connection, query, data)
+    return redirect(url_for('orders'))
 # ------------------------------UPDATE for Orders Page-----------------------------------
 @app.route('/update_orders/<int:order_id>', methods=['POST','GET'])
 def update_orders(order_id):
     db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Orders Page-----------------------------------
-@app.route('/delete_orders/<int:order_id>')
-def delete_orders(order_id):
+@app.route('/delete_orders/<int:id>', methods=['POST', 'GET'])
+def delete_orders(id):
     db_connection = db.connect_to_database()
-    pass
+    if request.method == 'POST':
+        query = 'DELETE FROM orders WHERE order_id = %s'
+        data = (id,)
+        result = db.execute_query(db_connection, query, data)
+        return redirect(url_for('orders'))
+    else:
+        return redirect(url_for('orders'))
 # ---------------------------------------------------------------------------------------
 #                                   Transactions Page 
 # ---------------------------------------------------------------------------------------
@@ -98,10 +109,13 @@ def update_transactions(transaction_id):
     db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Transactions Page-----------------------------
-@app.route('/delete_transactions/<int:transactions_id>')
-def delete_transactions(transaction_id):
+@app.route('/delete_transactions/<int:id>', methods=['POST', 'GET'])
+def delete_transactions(id):
     db_connection = db.connect_to_database()
-    pass
+    query = 'DELETE FROM transactions WHERE transaction_id = %s'
+    data = (id,)
+    result = db.execute_query(db_connection, query, data)
+    return redirect(url_for('transactions'))
 # ---------------------------------------------------------------------------------------
 #                                   Products Page 
 # ---------------------------------------------------------------------------------------
@@ -129,10 +143,16 @@ def update_products(product_id):
     db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Products Page---------------------------------
-@app.route('/delete_products/<int:product_id>')
-def delete_products(product_id):
+@app.route('/delete_products/<int:id>', methods=['POST', 'GET'])
+def delete_products(id):
     db_connection = db.connect_to_database()
-    pass
+    if request.method == 'POST':
+        query = 'DELETE FROM products WHERE product_id = %s'
+        data = (id,)
+        result = db.execute_query(db_connection, query, data)
+        return redirect(url_for('products'))
+    else:
+        return redirect(url_for('products'))
 # ---------------------------------------------------------------------------------------
 #                                   Employees Page 
 # ---------------------------------------------------------------------------------------
@@ -162,6 +182,7 @@ def update_employees(employee_id):
 # ------------------------------DELETE for Employees Page--------------------------------
 @app.route('/delete_employees/<int:id>', methods=['POST', 'GET'])
 def delete_employees(id):
+    db_connection = db.connect_to_database()
     if request.method == 'POST':
         query = 'DELETE FROM employees WHERE employee_id = %s'
         data = (id,)

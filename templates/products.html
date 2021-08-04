@@ -27,9 +27,15 @@
     <td>{{product[key]}}</td>
     {% endfor %}
     <td>
-      <a href="{{ url_for('products') }}">VIEW</a>
-      <a href="">UPDATE</a>
-      <a href="">DELETE</a>
+      <form action="{{ url_for('products') }}" method="post"> 
+        <input class="btn" type="submit" name="VIEW" value="VIEW">
+      </form>
+      <form action="{{ url_for('products') }}" method="post"> 
+        <input class="btn" type="submit" name="UPDATE" value="UPDATE">   
+      </form> 
+      <form action="{{ url_for('delete_products', id=product.product_id) }}" method="post"> 
+        <input class="btn" type="submit" name="DELETE" value="DELETE">
+      </form>
     </td>
   </tr>
   {% endfor %}
