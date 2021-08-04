@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 import os
 import database.db_connector as db
 # ---------------------------------------------------------------------------------------
@@ -41,10 +41,15 @@ def update_customers(customer_id):
     db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Customers Page--------------------------------
-@app.route('/delete_customers/<int:customer_id>')
-def delete_customers(customer_id):
-    db_connection = db.connect_to_database()
-    pass
+@app.route('/delete_customers/<int:id>', methods=['POST', 'GET'])
+def delete_customers(id):
+    if request.method == 'POST':
+        query = 'DELETE FROM customers WHERE customer_id = %s'
+        data = (id,)
+        result = db.execute_query(db_connection, query, data)
+        return redirect(url_for('customers'))
+    else:
+        return redirect(url_for('customers'))
 # ---------------------------------------------------------------------------------------
 #                                   Orders Page 
 # ---------------------------------------------------------------------------------------
@@ -112,7 +117,12 @@ def products():
 @app.route('/add_products', methods=['POST'])
 def add_products():
     db_connection = db.connect_to_database()
-    pass
+    product_name = request.form['product_name']
+    unit_price = request.form['unit_price']
+    query = 'INSERT INTO products (product_name, unit_price) VALUES (%s,%s)'
+    data = (product_name, unit_price)
+    db.execute_query(db_connection, query, data)
+    return redirect(url_for('products'))
 # ------------------------------UPDATE for Products Page---------------------------------
 @app.route('/update_products/<int:product_id>', methods=['POST','GET'])
 def update_products(product_id):
@@ -150,10 +160,15 @@ def update_employees(employee_id):
     db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Employees Page--------------------------------
-@app.route('/delete_employees/<int:employee_id>')
-def delete_employees(employee_id):
-    db_connection = db.connect_to_database()
-    pass
+@app.route('/delete_employees/<int:id>', methods=['POST', 'GET'])
+def delete_employees(id):
+    if request.method == 'POST':
+        query = 'DELETE FROM employees WHERE employee_id = %s'
+        data = (id,)
+        result = db.execute_query(db_connection, query, data)
+        return redirect(url_for('employees'))
+    else:
+        return redirect(url_for('employees'))
 # ---------------------------------------------------------------------------------------
 #                                       Listener
 # ---------------------------------------------------------------------------------------

@@ -27,9 +27,15 @@
     <td>{{person[key]}}</td>
     {% endfor %}
     <td>
-      <a href="{{ url_for('customers') }}">VIEW</a>
-      <a href="">UPDATE</a>
-      <a href="">DELETE</a>
+      <form action="{{ url_for('customers') }}" method="post"> 
+        <input class="btn" type="submit" name="VIEW" value="VIEW">
+      </form>
+      <form action="{{ url_for('customers') }}" method="post"> 
+        <input class="btn" type="submit" name="UPDATE" value="UPDATE">   
+      </form> 
+      <form action="{{ url_for('delete_customers', id=person.customer_id) }}" method="post"> 
+        <input class="btn" type="submit" name="DELETE" value="Delete">
+      </form>
     </td>
   </tr>
   {% endfor %}
@@ -40,7 +46,7 @@
   <input type="text" placeholder="first_name" name="first_name" required>
   <input type="text" placeholder="last_name" name="last_name" required>
   <input type="text" placeholder="address" name="address" required>
-  <input type="text" placeholder="phone_number" name="phone_number">
+  <input type="tel" placeholder="phone_number" name="phone_number">
   <input type="submit" value="Submit">
 </form>
 {% endblock %}

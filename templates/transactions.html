@@ -38,9 +38,9 @@
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
 <form id=transactions action="/add_transactions" method="POST">
-  <input type="text" placeholder="FK1: order_id" name="FK1: order_id">
-  <input type="text" placeholder="FK2: product_id" name="FK2: product_id">
-  <input type="text" placeholder="quantity" name="quantity">
+  <input type="number" placeholder="FK1: order_id" name="FK1: order_id">
+  <input type="number" placeholder="FK2: product_id" name="FK2: product_id">
+  <input type="number" placeholder="quantity" name="quantity">
   <input type="submit" value="Submit">
 </form>
 {% endblock %}
