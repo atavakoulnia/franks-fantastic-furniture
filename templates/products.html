@@ -28,13 +28,13 @@
     {% endfor %}
     <td>
       <form action="{{ url_for('products') }}" method="post"> 
-        <input class="btn" type="submit" name="VIEW" value="VIEW">
+        <input class="btn" type="submit" name="VIEW" value="View">
       </form>
       <form action="{{ url_for('products') }}" method="post"> 
-        <input class="btn" type="submit" name="UPDATE" value="UPDATE">   
+        <input class="btn" type="submit" name="UPDATE" value="Update">   
       </form> 
       <form action="{{ url_for('delete_products', id=product.product_id) }}" method="post"> 
-        <input class="btn" type="submit" name="DELETE" value="DELETE">
+        <input class="btn" type="submit" name="DELETE" value="Delete">
       </form>
     </td>
   </tr>
@@ -43,8 +43,8 @@
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
 <form id=products action="/add_products" method="POST">
-  <input type="text" placeholder="product_name" name="product_name">
-  <input type="text" placeholder="unit_price" name="unit_price">
+  <input type="text" placeholder="Product Name" name="product_name" required>
+  <input type="text" placeholder="Unit Price" name="unit_price" required>
   <input type="submit" value="Submit">
 </form>
 {% endblock %}

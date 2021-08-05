@@ -1,0 +1,25 @@
+# @app.route('/update_customers/<int:id>', methods=['POST','GET'])
+# def update_customers(id):
+#     if request.method == 'POST':
+#         first_name = request.form['first_name']
+#         last_name = request.form['last_name']
+#         address = request.form['address']
+#         phone_number = request.form['phone_number']
+#         query = 'UPDATE customers SET first_name=%s, last_name=%s, address=%s, phone_number=%s WHERE customer_id=%s'
+#         data = (first_name, last_name, address, phone_number)
+#         cursor = db.execute_query(db_connection, query, data)
+#         results = cursor.fetchall()
+#         return render_template('customers.html', update_customers=results)
+#     else:
+#         return redirect(url_for('customers'))
+
+<form action="{{ url_for('update_customers', id=person.customer_id) }}" method="post"> 
+  <input class="btn" type="submit" name="UPDATE" value="Update">  
+
+<form id=customers action="/update/{{ update_customer.id }}" method="POST">
+    <input type="text" placeholder="First Name" name="first_name" value="{{ update_customer.first_name }}">
+    <input type="text" placeholder="Last Name" name="last_name" value="{{ update_customer.last_name }}">
+    <input type="text" placeholder="Address" name="address" value="{{ update_customer.address }}">
+    <input type="tel" placeholder="Phone Number" name="phone_number" value="{{ update_customer.phone_number }}">
+    <input type="submit" value="Update">
+  </form>

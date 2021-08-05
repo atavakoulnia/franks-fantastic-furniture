@@ -15,6 +15,26 @@ def index():
 # ---------------------------------------------------------------------------------------
 #                                   Customers Page 
 # ---------------------------------------------------------------------------------------
+# ------------------------------Search for Customers Page--------------------------------
+@app.route('/search_results', methods=['POST', 'GET'])
+def search_results():
+    results = []
+    return render_template('search_results.html', search_customers=results)
+
+@app.route('/search_customers', methods=['POST', 'GET'])
+def search_customers():
+    db_connection = db.connect_to_database()
+    if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        query = 'SELECT * FROM customers WHERE first_name = %s and last_name = %s'
+        data = (first_name, last_name)
+        cursor = db.execute_query(db_connection, query, data)
+        results = cursor.fetchall()
+        print(results)
+        return render_template('search_results.html', search_customers=results)
+    else:
+        return redirect(url_for('customers'))
 # ------------------------------READ for Customers Page----------------------------------
 @app.route('/customers', methods=['POST', 'GET'])
 def customers():
@@ -36,10 +56,9 @@ def add_customers():
     db.execute_query(db_connection, query, data)
     return redirect(url_for('customers'))
 # ------------------------------UPDATE for Customers Page--------------------------------
-@app.route('/update_customers/<int:customer_id>', methods=['POST','GET'])
-def update_customers(customer_id):
-    db_connection = db.connect_to_database()
-    pass
+
+
+
 # ------------------------------DELETE for Customers Page--------------------------------
 @app.route('/delete_customers/<int:id>', methods=['POST', 'GET'])
 def delete_customers(id):
@@ -49,26 +68,6 @@ def delete_customers(id):
         data = (id,)
         result = db.execute_query(db_connection, query, data)
         return redirect(url_for('customers'))
-    else:
-        return redirect(url_for('customers'))
-# ------------------------------Search for Customers Page--------------------------------
-@app.route('/search_results', methods=['POST', 'GET'])
-def search_results():
-    results = []
-    return render_template('search_results.html', search_customers=results)
-
-@app.route('/search_customers', methods=['POST', 'GET'])
-def search_customers():
-    db_connection = db.connect_to_database()
-    if request.method == 'POST':
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        query = 'SELECT * FROM customers WHERE first_name = %s and last_name = %s'
-        data = (first_name, last_name)
-        cursor = db.execute_query(db_connection, query, data)
-        results = cursor.fetchall()
-        print(results)
-        return render_template('search_results.html', search_customers=results)
     else:
         return redirect(url_for('customers'))
 # ---------------------------------------------------------------------------------------
@@ -91,11 +90,6 @@ def add_orders():
     data = (customer_id)
     db.execute_query(db_connection, query, data)
     return redirect(url_for('orders'))
-# ------------------------------UPDATE for Orders Page-----------------------------------
-@app.route('/update_orders/<int:order_id>', methods=['POST','GET'])
-def update_orders(order_id):
-    db_connection = db.connect_to_database()
-    pass
 # ------------------------------DELETE for Orders Page-----------------------------------
 @app.route('/delete_orders/<int:id>', methods=['POST', 'GET'])
 def delete_orders(id):
@@ -121,11 +115,6 @@ def transactions():
 # ------------------------------CREATE for Transactions Page-----------------------------
 @app.route('/add_transactions', methods=['POST'])
 def add_transactions():
-    db_connection = db.connect_to_database()
-    pass
-# ------------------------------UPDATE for Transactions Page-----------------------------
-@app.route('/update_transactions/<int:transaction_id>', methods=['POST','GET'])
-def update_transactions(transaction_id):
     db_connection = db.connect_to_database()
     pass
 # ------------------------------DELETE for Transactions Page-----------------------------
@@ -157,11 +146,6 @@ def add_products():
     data = (product_name, unit_price)
     db.execute_query(db_connection, query, data)
     return redirect(url_for('products'))
-# ------------------------------UPDATE for Products Page---------------------------------
-@app.route('/update_products/<int:product_id>', methods=['POST','GET'])
-def update_products(product_id):
-    db_connection = db.connect_to_database()
-    pass
 # ------------------------------DELETE for Products Page---------------------------------
 @app.route('/delete_products/<int:id>', methods=['POST', 'GET'])
 def delete_products(id):
@@ -194,11 +178,6 @@ def add_employees():
     data = (first_name, last_name)
     db.execute_query(db_connection, query, data)
     return redirect(url_for('employees'))
-# ------------------------------UPDATE for Employees Page--------------------------------
-@app.route('/update_employees/<int:employee_id>', methods=['POST','GET'])
-def update_employees(employee_id):
-    db_connection = db.connect_to_database()
-    pass
 # ------------------------------DELETE for Employees Page--------------------------------
 @app.route('/delete_employees/<int:id>', methods=['POST', 'GET'])
 def delete_employees(id):

@@ -29,13 +29,13 @@
     {% endfor %}
     <td>
       <form action="{{ url_for('transactions') }}" method="post"> 
-        <input class="btn" type="submit" name="VIEW" value="VIEW">
+        <input class="btn" type="submit" name="VIEW" value="View">
       </form>
       <form action="{{ url_for('transactions') }}" method="post"> 
-        <input class="btn" type="submit" name="UPDATE" value="UPDATE">   
+        <input class="btn" type="submit" name="UPDATE" value="Update">   
       </form> 
       <form action="{{ url_for('delete_transactions', id=transaction.transaction_id) }}" method="post"> 
-        <input class="btn" type="submit" name="DELETE" value="DELETE">
+        <input class="btn" type="submit" name="DELETE" value="Delete">
       </form>
     </td>
   </tr>
@@ -44,9 +44,9 @@
 <br>
 <!-- ---------------------------------FORM------------------------------------------ -->
 <form id=transactions action="/add_transactions" method="POST">
-  <input type="number" placeholder="order_id" name="order_id">
-  <input type="number" placeholder="product_id" name="product_id">
-  <input type="number" placeholder="quantity" name="quantity">
+  <input type="number" placeholder="Order ID" name="order_id" required>
+  <input type="number" placeholder="Product ID" name="product_id" required>
+  <input type="number" placeholder="Quantity" name="quantity">
   <input type="submit" value="Submit">
 </form>
 {% endblock %}
