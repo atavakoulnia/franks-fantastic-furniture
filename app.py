@@ -58,6 +58,7 @@ def add_customers():
 # ------------------------------UPDATE for Customers Page--------------------------------
 @app.route('/update_customers/<int:id>', methods=['POST','GET'])
 def update_customers(id):
+    db_connection = db.connect_to_database()
     if request.method == 'POST':
         first_name = request.form['first_name']
         last_name = request.form['last_name']
@@ -132,7 +133,13 @@ def transactions():
 @app.route('/add_transactions', methods=['POST'])
 def add_transactions():
     db_connection = db.connect_to_database()
-    pass
+    order_id = request.form['order_id']
+    product_id = request.form['product_id']
+    quantity = request.form['quantity']
+    query = 'INSERT INTO transactions (order_id, product_id, quantity) VALUES (%s,%s,%s)'
+    data = (order_id, product_id, quantity)
+    db.execute_query(db_connection, query, data)
+    return redirect(url_for('transactions'))
 # ------------------------------DELETE for Transactions Page-----------------------------
 @app.route('/delete_transactions/<int:id>', methods=['POST', 'GET'])
 def delete_transactions(id):

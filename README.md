@@ -1,33 +1,4 @@
 # CS340DB
-~~UPDATED: 8/3 - 9:00pm~~
-
-~~UPDATED: 8/4 - 1:18pm~~
-
-~~UPDATED: 8/4 - 7:00pm~~
-
-UPDATED: 8/5 - 12:20pm
-
-
-What works:
-
-- SELECT for Customers, Orders, Transactions, Products, Employees
-- INSERT for Customers, Products, Employees
-- UPDATE for Customers
-- DELETE for Customers, Orders, Transactions, Products, Employees
-- Search/filter is fully functional for Customers (only need one)
-
-What we need:
-- INSERT for Transactions
-- Fix INSERT for Orders
-- Fix DELETE relationship between Transactions/Orders (not too important)
-
-More info:
-- The INSERT function works for Orders sometimes. I'm pretty sure it's something to do with the foreign keys.
-- The DELETE function works for all the tables but for example, if I delete a row from the Transactions table (page), it does not delete the row associated with the order_id in the Orders table (page). I don't think it's a big deal? Not sure if we will get points off. 
-
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
 
 Steps on how to run app.py
 
