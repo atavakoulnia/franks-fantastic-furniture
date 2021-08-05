@@ -56,9 +56,25 @@ def add_customers():
     db.execute_query(db_connection, query, data)
     return redirect(url_for('customers'))
 # ------------------------------UPDATE for Customers Page--------------------------------
-
-
-
+@app.route('/update_customers/<int:id>', methods=['POST','GET'])
+def update_customers(id):
+    if request.method == 'POST':
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        address = request.form['address']
+        phone_number = request.form['phone_number']
+        query = 'UPDATE customers SET first_name=%s, last_name=%s, address=%s, phone_number=%s WHERE customer_id=%s'
+        data = (first_name, last_name, address, phone_number, id)
+        cursor = db.execute_query(db_connection, query, data)
+        results = cursor.fetchall()
+        return redirect(url_for('customers'))
+    else:
+        query = 'SELECT * FROM customers WHERE customer_id=%s'
+        data = (id,)
+        cursor = db.execute_query(db_connection, query, data)
+        results = cursor.fetchall()
+        print(results)
+        return render_template('update_customers.html', id=id, update_customers=results)
 # ------------------------------DELETE for Customers Page--------------------------------
 @app.route('/delete_customers/<int:id>', methods=['POST', 'GET'])
 def delete_customers(id):
