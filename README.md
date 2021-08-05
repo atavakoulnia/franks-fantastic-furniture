@@ -10,11 +10,12 @@ What works:
 
 - SELECT for Customers, Orders, Transactions, Products, Employees
 - INSERT for Customers, Products, Employees
-- UPDATE not yet implemented (requirements say we only need an UPDATE for just one table/page)
+- UPDATE for Customers not yet implemented, but started (requirements say we only need an UPDATE for just one table/page)
 - DELETE for Customers, Orders, Transactions, Products, Employees
 - Search/filter is fully functional for Customers (only need one)
 
 What we need:
+- UPDATE for Customers
 - INSERT for Transactions
 - Fix INSERT for Orders
 - Fix DELETE relationship between Transactions/Orders (not too important)
