@@ -1,6 +1,6 @@
 # CS340DB
 
-##Specifications
+## Specifications
 *The CS340 Project that you will submit at the end of this course should satisfy all these specifications:
 
 1. Your database should be pre-populated with sample data. At least three rows per table is expected. The sample data should illustrate a table's functionality, e.g. if the table is part of a many-to-many relationship, the sample data should depict M:M.
@@ -12,7 +12,7 @@
 6. At least one 1:M relationship must be NULL-able (like bsg_people to bsg_planets); that is to say, you should be able to set the foreign key value to NULL (such as on a person in bsg_people), that removes the relationship. In case none of the one-to-many relationships in your database has partial participation, you would need to change that to make sure at least one can have NULL values. 
 7. In a many-to-many relationship, to remove a relationship one would need to delete a row from a table. That would be the case with bsg_people and bsg_certifications. One should be able to add and remove certifications for a person without deleting either bsg_people rows or bsg_certification rows. If you implement DELETE functionality on at least (1) many-to-many relationship table, such that the rows in the relevant entity tables are not impacted, that is sufficient.
  
-##General Rules and Grading
+## General Rules and Grading
 1. Can be developed using any technology platform which serves content over the web.
 2. Should use MySQL/MariaDB as the database back end.
 3. You should write all the queries and not depend on an ORM or similar mechanism to generate any queries.
