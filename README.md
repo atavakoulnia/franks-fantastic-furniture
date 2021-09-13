@@ -1,11 +1,11 @@
 # CS340DB
 
 ## Specifications
-*The CS340 Project that you will submit at the end of this course should satisfy all these specifications:
+*The CS340 Project that you will submit at the end of this course should satisfy all these specifications:*
 
 1. Your database should be pre-populated with sample data. At least three rows per table is expected. The sample data should illustrate a table's functionality, e.g. if the table is part of a many-to-many relationship, the sample data should depict M:M.
 2. When planning, your database should have at least 4 entities and at least 4 relationships, 2  of which must be a many-to-many relationship.  The entities and relationships should implement the operational requirements of your project, see individual project steps for weekly instruction.
-*Note for this project you will be asked to identify 2 M:M relationships in the planning phase, however will only be required one for your final project execution. You will still need 4 - relationships for final implementation - two - 1:M, one - M:M and the last relationship can be any other relationship of your choice. 
+*Note for this project you will be asked to identify 2 M:M relationships in the planning phase, however will only be required one for your final project execution. You will still need 4 - relationships for final implementation - two - 1:M, one - M:M and the last relationship can be any other relationship of your choice.* 
 3. It should be possible to INSERT entries into every table individually.
 4. Every table should be used in at least one SELECT query. For the SELECT queries, it is fine to just display the content of the tables, but your website needs to also have the ability to search using text or filter using a dynamically populated list of properties. This search/filter functionality should be present for at least one entity. It is generally not appropriate to have only a single query that joins all tables and displays them.
 5. You need to include one DELETE and one UPDATE function in your website, for any one of the entities. In addition, it should be possible to add and remove things from at least one many-to-many relationship and it should be possible to add things to all relationships. This means you need INSERT functionality for all relationships as well as entities. And DELETE for at least one many-to-many relationship.
