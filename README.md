@@ -27,8 +27,8 @@ Before Starting
 
 
 1. Open terminal and type “cd /Users/<username>/Documents" (or wherever else you want to save the project)
-2. Then type “git clone https://github.com/Armonymon/CS340DB.git” to clone the project into that folder
-3. Open the CS340DB folder in VScode
+2. Then type “git clone https://github.com/Armonymon/cs340-database-project.git” to clone the project into that folder
+3. Open the cs340-database-project folder in VScode
 4. Click the “.gitignore” file and delete the text ‘.env’ then save the file
 5. Make a new file called “.env” and copy and paste this… then save the file
 
@@ -41,7 +41,7 @@ Before Starting
 340DB=CS340DB
 
 6. Now open the “.gitignore” file again and add back the text ‘.env’ then save and close the file
-7. Open a new terminal in VScode and make sure you are in the root project directory (cd /Users/<username>/Documents/CS340DB)
+7. Open a new terminal in VScode and make sure you are in the root project directory (cd /Users/<username>/Documents/cs340-database-project)
 8. Run “pip3 install virtualenv” to install the virtual environment
 9. Then run "python3 -m venv ./venv”
 10. Now, activate the virtual environment by running “source ./venv/bin/activate”
@@ -63,7 +63,7 @@ If the database is empty…
 2. Run “mysql -u root -p”
 3. Might have to type in the password you used to in step 5 from above
 4. Run “USE CS340DB”
-5. Run “source /Users/<username>/Documents/CS340DB/database/database.sql”
+5. Run “source /Users/<username>/Documents/cs340-database-project/database/database.sql”
 6. If you want to check if the database was added, run “SHOW TABLES;” to see tables
 7. When you’re done run “quit”
 
