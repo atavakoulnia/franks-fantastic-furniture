@@ -1,9 +1,11 @@
 # Frank's Fantasic Furniture
-• Custom online storefront implemented with Python-Flask, HTML, and CSS
-• Constructed functional SQL/MariaDB as the database back-end
+Frank's Fantastic Furniture is a fully functioning furniture store where users can shop for items populated from a database. The database is pre-populated with sample data.
 
 ## Specifications
-Frank's Fantastic Furniture is a fully functioning furniture store where users can shop for items populated from a database. The database is pre-populated with sample data.
+- Custom online storefront implemented with Python-Flask, HTML, and CSS
+
+- Constructed functional SQL/MariaDB as the database back-end
+
 
 ## Requirements
 - Make sure to download and start ‘MySQL Server’ (https://dev.mysql.com/downloads/mysql/)
