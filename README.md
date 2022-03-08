@@ -55,3 +55,9 @@ mysql -u root -p (Root folder of mysql)
 
 SET FOREIGN_KEY_CHECKS=0; (Resets locked values in database)
 ```
+
+## Website Demonstrations 
+
+### Homepage
+
+![Homepage](https://github.com/atavakoulnia/franks-fantastic-furniture/blob/main/static/img/homepage-demo.gif)
